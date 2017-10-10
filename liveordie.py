@@ -43,12 +43,10 @@ try:
             print(amarelo + "\nOBS: Não se esqueça do ponto final no IP!" + branco)
             exit()
         print("\nComeço de IP selecionado: " + verde + ip + branco)
-        print("Por padrão testamos somente 20 maquinas! ")
+        print("Por padrão testamos as 254 maquinas! ")
         print("\nIniciado:\n")
-#,21,22,23,24,25,26,27,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
-        xrange = (2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
         with open(os.devnull, "wb") as limbo:
-                for n in xrange:
+                for n in range(2,254):
                         new_ip=("%s{0}"%ip).format(n)
                         result=subprocess.Popen(["ping", "-c", "1", "-n", "-W", "2", new_ip],
                                 stdout=limbo, stderr=limbo).wait()
